@@ -119,7 +119,7 @@ body{padding-bottom:48px}
    const [rr,ur,pr]=await Promise.all([fetch(api+'rosters'),fetch(api+'users'),fetch('https://api.sleeper.app/v1/players/nfl')]);
    if(!rr.ok||!ur.ok||!pr.ok)throw Error('Sleeper-Daten nicht erreichbar');
    const [rosters,users,players]=await Promise.all([rr.json(),ur.json(),pr.json()]);
-   const user=users.find(u=>u.display_name==='Chris J. Schulze'||u.username==='vikings'||(u.metadata&&/schulzes special team/i.test(u.metadata.team_name||'')));
+   const user=users.find(u=>u.username==='CoachSchulze'||u.display_name==='CoachSchulze'||(u.metadata&&/schulzes special team/i.test(u.metadata.team_name||'')));
    const roster=rosters.find(r=>user&&r.owner_id===user.user_id);
    if(!roster)throw Error('Teamzuordnung nicht eindeutig');
    const grouped={QB:[],RB:[],WR:[],TE:[],K:[],DEF:[],OTHER:[]};
