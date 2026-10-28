@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0b3d28">
+<meta name="description" content="Der Fanshop von Schulze's Special Team ist gerade überlastet.">
+<title>Fanshop-Warteschlange | Schulze's Special Team</title>
+<style>
+:root{--green:#0b5735;--deep:#082d20;--black:#101512;--white:#f4f4ee;--gold:#c6a75e;--muted:#b9c5bd;--red:#d66a5e}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;display:flex;flex-direction:column;background:radial-gradient(ellipse at 50% 0%,#164b32 0%,#0b1711 52%,#080d0a 100%);color:var(--white);font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;line-height:1.55}
+header{border-bottom:1px solid #ffffff20;background:#07110bd9}.nav{max-width:1100px;margin:auto;padding:16px 22px;display:flex;align-items:center;justify-content:space-between;gap:16px}.brand{display:flex;align-items:center;gap:12px;text-decoration:none}.logo{width:48px;height:48px;object-fit:contain;background:#fff;border:1px solid #c6a75e;padding:3px;border-radius:4px}.brand b{display:block;letter-spacing:.06em}.brand small{display:block;color:var(--muted);font-size:10px;letter-spacing:.14em}.home{font-size:12px;font-weight:800;text-decoration:none;color:var(--gold)}
+main{width:min(760px,100%);margin:auto;padding:clamp(34px,7vw,76px) 22px;text-align:center}.eyebrow{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:900}.status{display:inline-flex;align-items:center;gap:9px;margin:20px 0 8px;border:1px solid #c6a75e77;background:#07110b99;padding:8px 12px;font-size:11px;font-weight:900;letter-spacing:.12em}.dot{width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 12px #c6a75e;animation:pulse 1.5s infinite}@keyframes pulse{50%{opacity:.35}}h1{font-size:clamp(38px,8vw,68px);line-height:.98;letter-spacing:-.055em;margin:18px 0}p{color:#d0dcd3}.queue-card{margin:30px auto 18px;max-width:540px;padding:clamp(24px,5vw,40px);border:1px solid #c6a75e88;background:linear-gradient(145deg,#202923ed,#101511ed);box-shadow:0 22px 70px #0005}.queue-label{font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);font-weight:800}.number{font-size:clamp(66px,15vw,112px);line-height:1.1;letter-spacing:-.06em;font-weight:950;font-variant-numeric:tabular-nums;color:var(--gold);margin:8px 0}.queue-sub{font-size:13px;color:#d9e1dc}.progress{height:8px;background:#080d0a;border:1px solid #ffffff1e;margin:24px 0 10px;overflow:hidden}.progress span{display:block;width:4%;height:100%;background:linear-gradient(90deg,var(--green),var(--gold));transition:width .5s}.fine{font-size:12px;color:var(--muted)}.error{display:none;margin:24px auto 0;max-width:540px;padding:24px;border:1px solid #d66a5e99;background:#261613}.error h2{margin:0 0 8px;color:#ffb1a6;font-size:23px}.error p{margin:0 0 16px}.error-code{font-size:11px;letter-spacing:.12em;color:#d8a29a}.btn{display:inline-block;border:1px solid #ffffff55;background:#111916;color:var(--white);padding:12px 16px;text-decoration:none;font-size:12px;font-weight:900;letter-spacing:.05em;cursor:pointer}.btn:hover{border-color:var(--gold);color:var(--gold)}footer{text-align:center;padding:22px;color:#93a49a;font-size:11px;border-top:1px solid #ffffff14}footer a{color:var(--gold)}.simulation{margin-top:26px;font-size:11px;color:#93a49a}
+</style>
+</head>
+<body>
+<header><nav class="nav"><a class="brand" href="index.html"><img class="logo" src="https://sleepercdn.com/uploads/17764319936c3a860704b73b61056ade.jpg" alt=""><span><b>SCHULZE'S SPECIAL</b><small>FANSHOP · EST. 2021</small></span></a><a class="home" href="index.html">← ZUR STARTSEITE</a></nav></header>
+<main>
+<div class="eyebrow">Official SST Fan Shop</div>
+<div class="status"><span class="dot"></span><span id="status-label">FANSHOP WEGEN ÜBERLASTUNG GESCHLOSSEN</span></div>
+<h1>Sie sind in der<br>Warteschlange.</h1>
+<p>Der Ansturm auf die Fanartikel ist aktuell zu groß. Bitte lassen Sie dieses Fenster geöffnet – Ihre Position wird laufend aktualisiert.</p>
+<section class="queue-card" aria-live="polite">
+<div class="queue-label">Ihre aktuelle Warteschlangenposition</div>
+<div class="number" id="queue-number">1.147</div>
+<div class="queue-sub" id="queue-message">Wir arbeiten uns Schritt für Schritt nach vorne.</div>
+<div class="progress"><span id="progress-fill"></span></div>
+<div class="fine" id="queue-updated">Position wird aktualisiert …</div>
+</section>
+<section class="error" id="connection-error" role="alert">
+<div class="error-code">FEHLER SST-503 · GATEWAY TIMEOUT</div>
+<h2>Verbindung konnte nicht aufgebaut werden.</h2>
+<p>Beim Aufruf des Fanshops ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.</p>
+<button class="btn" id="retry-button" type="button">ERNEUT VERBINDEN</button>
+</section>
+<p class="simulation">Hinweis: Die Warteschlange ist eine humorvolle Simulation der SST-Fanshop-Eröffnung. Es findet keine echte Platzreservierung statt.</p>
+</main>
+<footer>© 2026 Schulze's Special Football Team · <a href="index.html">Zurück zur Trinkhalle</a></footer>
+<script>
+(function(){
+ const numberEl=document.getElementById('queue-number');
+ const messageEl=document.getElementById('queue-message');
+ const updatedEl=document.getElementById('queue-updated');
+ const fill=document.getElementById('progress-fill');
+ const error=document.getElementById('connection-error');
+ const retry=document.getElementById('retry-button');
+ const status=document.getElementById('status-label');
+ let start=Math.floor(900+Math.random()*401);
+ let position=start;
+ let stopped=false;
+ let timer=null;
+ const fmt=n=>n.toLocaleString('de-DE');
+ function render(){
+  numberEl.textContent=fmt(position);
+  const progress=Math.max(0,Math.min(100,((start-position)/(start-16))*100));
+  fill.style.width=progress+'%';
+  updatedEl.textContent='Zuletzt aktualisiert: '+new Date().toLocaleTimeString('de-DE');
+ }
+ function fail(){
+  stopped=true;
+  if(timer)clearTimeout(timer);
+  error.style.display='block';
+  status.textContent='VERBINDUNGSFEHLER';
+  messageEl.textContent='Ihre Position wurde angehalten.';
+  updatedEl.textContent='Verbindung unterbrochen';
+ }
+ function tick(){
+  if(stopped)return;
+  if(position>=16&&position<=78){fail();return;}
+  const decrement=1+Math.floor(Math.random()*3);
+  position=Math.max(16,position-decrement);
+  render();
+  if(position>=16&&position<=78){timer=setTimeout(fail,700+Math.random()*1400);return;}
+  timer=setTimeout(tick,1800+Math.random()*2600);
+ }
+ retry.addEventListener('click',function(){
+  error.style.display='none';
+  status.textContent='FANSHOP WEGEN ÜBERLASTUNG GESCHLOSSEN';
+  stopped=false;
+  if(position>=16&&position<=78){position=Math.floor(79+Math.random()*12);}
+  messageEl.textContent='Verbindung wird erneut aufgebaut …';
+  render();
+  timer=setTimeout(tick,1200);
+ });
+ render();
+ timer=setTimeout(tick,2200);
+})();
+</script>
+</body>
+</html>
