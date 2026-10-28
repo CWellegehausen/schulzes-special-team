@@ -33,7 +33,7 @@ main{width:min(760px,100%);margin:auto;padding:clamp(34px,7vw,76px) 22px;text-al
 <p>Beim Aufruf des Fanshops ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.</p>
 <button class="btn" id="retry-button" type="button">ERNEUT VERBINDEN</button>
 </section>
-<p class="simulation">Hinweis: Die Warteschlange ist eine humorvolle Simulation der SST-Fanshop-Eröffnung. Es findet keine echte Platzreservierung statt.</p>
+
 </main>
 <footer>© 2026 Schulze's Special Football Team · <a href="index.html">Zurück zur Trinkhalle</a></footer>
 <script>
@@ -70,8 +70,8 @@ main{width:min(760px,100%);margin:auto;padding:clamp(34px,7vw,76px) 22px;text-al
   const decrement=1+Math.floor(Math.random()*3);
   position=Math.max(16,position-decrement);
   render();
-  if(position>=16&&position<=78){timer=setTimeout(fail,700+Math.random()*1400);return;}
-  timer=setTimeout(tick,1800+Math.random()*2600);
+  if(position>=16&&position<=78){timer=setTimeout(fail,150+Math.random()*300);return;}
+  timer=setTimeout(tick,250+Math.random()*450);
  }
  retry.addEventListener('click',function(){
   error.style.display='none';
@@ -83,7 +83,7 @@ main{width:min(760px,100%);margin:auto;padding:clamp(34px,7vw,76px) 22px;text-al
   timer=setTimeout(tick,1200);
  });
  render();
- timer=setTimeout(tick,2200);
+ timer=setTimeout(tick,180);
 })();
 </script>
 </body>
