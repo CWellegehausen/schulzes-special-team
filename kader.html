@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Aktueller Kader · Schulze’s Special Team</title>
+<style>
+:root{--green:#123c28;--gold:#c6a75e;--black:#07110b;--paper:#f3f0e7;--muted:#b8c4ba}
+*{box-sizing:border-box}body{margin:0;background:var(--black);color:var(--paper);font-family:Arial,Helvetica,sans-serif;line-height:1.6}.wrap{width:min(1100px,92%);margin:auto}.hero{padding:64px 0 42px;background:linear-gradient(120deg,#07110b,#123c28);border-bottom:2px solid var(--gold)}.eyebrow{color:var(--gold);text-transform:uppercase;letter-spacing:.14em;font-size:.78rem;font-weight:bold}h1{font-size:clamp(2.2rem,6vw,4.5rem);line-height:1.05;margin:.4rem 0 1rem}h2{font-size:1.4rem}.panel{margin:28px 0;padding:24px;background:#101d14;border:1px solid #c6a75e66;border-radius:8px}.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}.btn{display:inline-block;padding:11px 15px;border:1px solid var(--gold);color:var(--paper);text-decoration:none;font-size:.82rem;font-weight:bold;letter-spacing:.04em}.btn:hover{background:var(--green)}.notice{color:var(--muted);font-size:.92rem}
+.roster-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:18px}.roster-position{background:#101712;border:1px solid #ffffff20;padding:14px}.roster-position h4{margin:0 0 10px;color:var(--gold);font-size:12px;letter-spacing:.14em}.roster-player{padding:7px 0;border-bottom:1px solid #ffffff12;font-size:13px}.roster-player:last-child{border-bottom:0}.roster-player small{display:block;color:var(--muted);font-size:11px}@media(max-width:760px){.roster-grid{grid-template-columns:1fr}}.hof-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.hof-card{position:relative;background:linear-gradient(145deg,#1b241e,#101511);border:1px solid #c6a75e66;padding:24px;overflow:hidden}.hof-card:before{content:"";position:absolute;right:-18px;top:-30px;width:100px;height:100px;border:1px solid #c6a75e44;transform:rotate(45deg)}.hof-year{color:var(--gold);font-size:12px;font-weight:900;letter-spacing:.2em}.hof-card h3{font-size:22px;line-height:1.1;margin:12px 0}.hof-card p{color:var(--muted);font-size:14px;margin:0}.history-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.history-card{background:linear-gradient(145deg,#1b241e,#101511);border:1px solid #c6a75e66;padding:28px;position:relative;overflow:hidden}.history-year{color:var(--gold);font-size:12px;font-weight:900;letter-spacing:.18em}.history-card h3{font-size:clamp(24px,3vw,34px);line-height:1.05;margin:14px 0}.history-card p{color:#d3ddd6}.history-note{border-top:1px solid #c6a75e55;padding-top:14px;color:var(--gold);font-weight:750;font-size:13px}.timeline{border-left:2px solid #c6a75e66;margin:26px 0 0 8px;padding-left:22px;display:grid;gap:18px}.timeline-item strong{color:var(--gold);margin-right:10px}.timeline-item{color:#d9e1dc}.panel h3{margin:0 0 10px}.panel p{color:var(--muted);margin:0 0 14px}.data{white-space:pre-wrap;font-size:13px;color:#e1e9e3}.notice{font-size:12px;color:#aebbb3;margin-top:14px}footer{border-top:1px solid #ffffff1a;background:#080d0a;padding:30px 22px;color:var(--muted);font-size:12px}.foot{width:min(1180px,100%);margin:auto;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap} @media(max-width:760px){.links{gap:10px}.links a{font-size:11px}.brand small{display:none}.hero{min-height:520px}.stats{grid-template-columns:1fr}.venue,.cards,.matchup,.hof-grid,.history-grid{grid-template-columns:1fr}.section-head{align-items:start;flex-direction:column}.card img{height:270px}} 
+ .whack-game{background:linear-gradient(145deg,#1b241e,#101511);border:1px solid #c6a75e77;padding:clamp(18px,4vw,32px)}.whack-top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:18px}.whack-stat{background:#080d0a;border:1px solid #ffffff22;padding:10px 15px;min-width:100px}.whack-stat small{display:block;color:var(--muted);font-size:10px;letter-spacing:.12em;text-transform:uppercase}.whack-stat strong{font-size:25px}.whack-board{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;max-width:620px;margin:0 auto}.whack-hole{height:clamp(94px,16vw,150px);border:2px solid #ffffff16;border-radius:14px;background:radial-gradient(ellipse at center,#1b3527 0%,#0a1710 70%);box-shadow:inset 0 -12px 0 #050a07;display:grid;place-items:center;cursor:pointer;font-size:clamp(36px,7vw,62px);transition:transform .08s,border-color .12s;position:relative;overflow:hidden}.whack-hole:active{transform:scale(.96)}.whack-hole.pop{border-color:#c6a75e;box-shadow:inset 0 -12px 0 #050a07,0 0 18px #c6a75e22}.whack-hole:disabled{cursor:default;opacity:.82}.whack-message{min-height:52px;text-align:center;color:#e7d7a5;font-weight:800;padding:16px 4px 4px}.whack-start{display:flex;justify-content:center;margin-top:12px}.whack-help{text-align:center;color:var(--muted);font-size:13px;margin:12px auto 0;max-width:620px}
+/* Fixed standings ticker */
+body{padding-bottom:48px}
+.standings-ticker{position:fixed;left:0;right:0;bottom:0;z-index:30;height:44px;background:#07110b;border-top:2px solid var(--gold);box-shadow:0 -6px 20px #0008;display:flex;align-items:center;overflow:hidden}
+.ticker-label{height:100%;display:flex;align-items:center;flex:0 0 auto;padding:0 14px;background:var(--green);color:#fff;font-size:11px;font-weight:950;letter-spacing:.12em;white-space:nowrap;border-right:1px solid #c6a75e88}
+.ticker-window{overflow:hidden;white-space:nowrap;flex:1}
+.ticker-track{display:inline-flex;align-items:center;gap:30px;min-width:max-content;padding-left:28px;animation:standings-scroll 65s linear infinite}
+.ticker-window:hover .ticker-track{animation-play-state:paused}
+.ticker-entry{font-size:12px;font-weight:750;color:#e6ece7;white-space:nowrap}
+.ticker-entry strong{color:var(--gold);margin-right:6px}
+.ticker-entry .record{color:#fff;background:#1b2b21;border:1px solid #ffffff1e;padding:3px 7px;margin-left:6px;font-variant-numeric:tabular-nums}
+.ticker-sep{color:#55735e}
+@keyframes standings-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.ticker-track{animation:none}}
+@media(max-width:600px){body{padding-bottom:44px}.standings-ticker{height:40px}.ticker-label{font-size:9px;padding:0 9px}.ticker-entry{font-size:11px}.ticker-track{gap:20px}}
+
+</style></head><body>
+<header class="hero"><div class="wrap"><div class="eyebrow">The Franchise · Saisonkader</div><h1>Schulze’s Special Team</h1><p>Der aktuelle Kader – live aus Sleeper.</p><div class="actions"><a class="btn" href="index.html#franchise">ZURÜCK ZU THE FRANCHISE ↗</a><a class="btn" href="https://sleeper.com/leagues/1309297618647547904/team" target="_blank" rel="noopener">AUF SLEEPER ÖFFNEN ↗</a></div></div></header>
+<main class="wrap"><section class="panel"><div class="eyebrow">Der aktuelle Kader · Live aus Sleeper</div><h2>Schulze’s Special Team</h2><p>Der Kader wird direkt aus der OFF-Liga geladen. Die Zugehörigkeitsdauer wird ergänzt, soweit sie sich aus der Transaktionshistorie zuverlässig bestimmen lässt.</p><div id="sst-roster" class="roster-grid"><p class="notice">Lade den aktuellen Kader …</p></div><p class="notice" id="sst-roster-note">Quelle: Sleeper</p></section></main>
+<script>
+const target=document.getElementById('sst-roster');
+const league='1309297618647547904', api='https://api.sleeper.app/v1/league/'+league+'/';
+ const esc=s=>String(s??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+ async function load(){
+  try{
+   const [rr,ur,pr]=await Promise.all([fetch(api+'rosters'),fetch(api+'users'),fetch('https://api.sleeper.app/v1/players/nfl')]);
+   if(!rr.ok||!ur.ok||!pr.ok)throw Error('Sleeper-Daten nicht erreichbar');
+   const [rosters,users,players]=await Promise.all([rr.json(),ur.json(),pr.json()]);
+   const user=users.find(u=>u.username==='CoachSchulze'||u.display_name==='CoachSchulze'||(u.metadata&&/schulzes special team/i.test(u.metadata.team_name||'')));
+   const roster=rosters.find(r=>user&&r.owner_id===user.user_id);
+   if(!roster)throw Error('Teamzuordnung nicht eindeutig');
+   const grouped={QB:[],RB:[],WR:[],TE:[],K:[],DEF:[],OTHER:[]};
+   (roster.players||[]).forEach(id=>{
+    const p=players[id]||{},pos=p.position||'OTHER';
+    const group=grouped[pos]!==undefined?pos:'OTHER';
+    const name=[p.first_name,p.last_name].filter(Boolean).join(' ')||p.full_name||id;
+    grouped[group].push({name,pos,team:p.team||'FA',id});
+   });
+   const order=['QB','RB','WR','TE','K','DEF','OTHER'];
+   target.innerHTML=order.filter(k=>grouped[k].length).map(k=>'<div class="roster-position"><h4>'+esc(k==='DEF'?'DEFENSE':k==='OTHER'?'WEITERE':k)+'</h4>'+grouped[k].sort((a,b)=>a.name.localeCompare(b.name)).map(p=>'<div class="roster-player">'+esc(p.name)+'<small>'+esc(p.team)+' · '+esc(p.pos)+'</small></div>').join('')+'</div>').join('');
+   document.getElementById('sst-roster-note').textContent='Live aus Sleeper · '+(roster.players||[]).length+' Spieler im Kader. Zugehörigkeitsdauer wird nicht angezeigt, solange sie nicht belastbar aus der Transaktionshistorie ableitbar ist.';
+  }catch(e){target.innerHTML='<p class="notice">Der Live-Kader konnte gerade nicht geladen werden. Bitte das OFF-Teamprofil öffnen.</p>';}
+ }
+ load();
+})();
+
+</script></body></html>
